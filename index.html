@@ -1,37 +1,98 @@
 <!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Static Site &amp; Blog</title>
+  <meta name="description" content="It&#x27;s about saying »Hello« to the World.">
+  <style>
+    html,
+    body {
+      position: relative;
+      margin: 0;
+      padding: 0;
+    }
 
-        <link rel="manifest" href="site.webmanifest">
-        <link rel="apple-touch-icon" href="icon.png">
-        <!-- Place favicon.ico in the root directory -->
+    .grid {
+      position: relative;
+      height: 1230px;
+      margin: 0 auto;
+      display: block;
+      max-width: 1044px;
+      width: 100%;
+    }
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-    </head>
-    <body>
-        <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
+    .grid-item {
+      float: left;
+      width: 200px;
+      height: 300px;
+      border: 2px solid hsla(0, 0%, 0%, 0.5);
+      overflow: hidden;
+    }
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+    img {
+      width: 100%;
+      height: auto;
+    }
 
-        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-        <script>
-            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
-        </script>
-        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-    </body>
+    .grid-item--width2 { width: 160px; }
+    .grid-item--height2 { height: 140px; }
+
+    .backdrop {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: url('./images/grass.jpg') no-repeat top center;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="backdrop"></div>
+<div class="grid">
+    <div class="grid-item"><img src="./images/1_H.jpg"/></div>
+    <div class="grid-item"><img src="./images/2_A.jpg"/></div>
+    <div class="grid-item"><img src="./images/3_P.jpg"/></div>
+    <div class="grid-item"><img src="./images/4_P.jpg"/></div>
+    <div class="grid-item"><img src="./images/5_Y.jpg"/></div>
+    <div class="grid-item"><img src="./images/6_.jpg"/></div>
+    <div class="grid-item"><img src="./images/7_B.jpg"/></div>
+    <div class="grid-item"><img src="./images/8_I.jpg"/></div>
+    <div class="grid-item"><img src="./images/9_R.jpg"/></div>
+    <div class="grid-item"><img src="./images/10_T.jpg"/></div>
+    <div class="grid-item"><img src="./images/11_H.jpg"/></div>
+    <div class="grid-item"><img src="./images/12_D.jpg"/></div>
+    <div class="grid-item"><img src="./images/13_A.jpg"/></div>
+    <div class="grid-item"><img src="./images/14_Y.jpg"/></div>
+    <div class="grid-item"><img src="./images/15_.jpg"/></div>
+    <div class="grid-item"><img src="./images/16_M.jpg"/></div>
+    <div class="grid-item"><img src="./images/17_O.jpg"/></div>
+    <div class="grid-item"><img src="./images/18_L.jpg"/></div>
+    <div class="grid-item"><img src="./images/19_L.jpg"/></div>
+    <div class="grid-item"><img src="./images/20_Y.jpg"/></div>
+</div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/packery/2.1.1/packery.pkgd.min.js"
+  crossorigin="anonymous"></script>
+  <script>
+    $(function() {
+      
+      $('.grid').packery({
+        itemSelector: '.grid-item',
+        gutter: 10,
+        rowHeight: 300,
+        columnWidth: 200,
+        stagger: 30,
+      });
+      
+    });
+  </script>
+</body>
 </html>
