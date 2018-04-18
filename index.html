@@ -21,6 +21,8 @@
       display: block;
       max-width: 1044px;
       width: 100%;
+      padding: 24px;
+      box-sizing: border-box;
     }
 
     .grid-item {
@@ -53,6 +55,13 @@
       bottom: -10px;
       background: url('./images/grass.jpg') no-repeat top center;
       background-size: cover;
+    }
+    
+    @media only screen and (max-width: 768) {
+      .grid-item {
+        width: 100%;
+        height: auto;
+      }
     }
   </style>
 </head>
