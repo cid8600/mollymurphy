@@ -232,6 +232,8 @@
       
       
       $grid.on( 'click', '.grid-item', function( event ) {
+        console.log($(  event.currentTarget  ).hasClass('is-pointer-down'))
+                console.log($(  event.currentTarget  ).hasClass('is-dragging'))
         $(  event.currentTarget  ).toggleClass('grid-item--width2');
         $grid.packery('layout');
       });
