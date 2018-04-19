@@ -63,7 +63,7 @@
     }
 
     .grid-item {
-      float: left;
+      position: relative;
       width: 200px;
       height: 300px;
       overflow: hidden;
@@ -80,6 +80,10 @@
     }
     
     .grid-item img {
+      postion: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
       width: 100%;
       height: auto;
       transition: width .2s ease;
