@@ -69,7 +69,16 @@
       overflow: hidden;
       box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.4);
     }
-
+    
+    .grid-item:hover {
+      box-shadow: 0 10px 3px -3px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+    }
+    
+    .grid-item:hover img {
+      width: 105%;
+    }
+    
     img {
       width: 100%;
       height: auto;
@@ -94,12 +103,12 @@
       background-size: cover;
       z-index: -1;
     }
-      .grid-item--mobile {
-        display: none;
-      }
-      .grid-item--desktop {
-        display: block;
-      }
+    .grid-item--mobile {
+      display: none;
+    }
+    .grid-item--desktop {
+      display: block;
+    }
     
     @media only screen and (max-width: 768px) {
       .grid-item {
@@ -125,7 +134,7 @@
         height: 50px;
         margin-right: 20px;
       }
-      .bopdy {
+      .body {
         font-size: 22px;
       }
     }
@@ -183,10 +192,16 @@
         columnWidth: 200,
         stagger: 30,
       });
-      // layout Packery after each image loads
-$grid.imagesLoaded().progress( function() {
-  $grid.packery();
-});
+      $grid.imagesLoaded().progress( function() {
+        $grid.packery();
+      });
+      
+      
+      $grid.on( 'click', '.grid-item', function( event ) {
+        $(  event.currentTarget  ).toggleClass('grid-item--width2');
+        $grid.packery('layout');
+      });
+      
     });
   </script>
 </body>
