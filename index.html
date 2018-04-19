@@ -71,6 +71,7 @@
       width: 200px;
       height: 300px;
       overflow: hidden;
+      transition: all .2s ease;
       box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.4);
     }
     
@@ -90,7 +91,7 @@
       transform: translate(-50%,-50%);
       width: 100%;
       height: auto;
-      transition: width .2s ease;
+      transition: all .2s ease;
     }
 
     .grid-item--width2 { 
@@ -118,14 +119,11 @@
     .grid-item--desktop {
       display: block;
     }
-    /* highlight drag & drop */
 
-    /* Draggabilly adds is-dragging */
     .grid-item.is-dragging,
-    /* Packery adds class while transitioning to drop position */
     .grid-item.is-positioning-post-drag {
-      border: 1px solid #EA0;
-      z-index: 2; /* keep dragged item on top */
+      border: 1px solid red;
+      z-index: 2;
     }
     
     @media only screen and (max-width: 768px) {
