@@ -52,10 +52,22 @@
       max-width: 1040px;
       margin: 0 auto 30px auto;
     }
+    .message__solve {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      float: right;
+    }
     
     .grid,
     .grid-solved {
       position: relative;
+      clear: both;
       height: 1230px;
       margin: 0 auto;
       display: block;
@@ -284,6 +296,8 @@
       $('body').on( 'click', '.message__solve', function( event ) {
         $('.grid').toggle();
         $('.grid-solved').toggle();
+        $grid.packery('layout');
+        $gridSolved.packery('layout');
       });
 
     });
