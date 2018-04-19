@@ -23,14 +23,17 @@
       margin: 0 auto 10px auto;
     }
     
+    .body {
+      font-size: 18px;
+    }
+    
     .message {
       background-color: rgba(43, 232, 218, 0.67);
       color: #fff;
       display: block;
-      font-size: 18px;
       padding: 24px;
       width: 100%;
-      max-width: 600px;
+      max-width: 1004px;
       margin: 0 auto 30px auto;
     }
     
@@ -74,6 +77,7 @@
       bottom: -10px;
       background: url('./images/grass.jpg') no-repeat top center;
       background-size: cover;
+      z-index: -1;
     }
       .grid-item--mobile {
         display: none;
@@ -103,8 +107,10 @@
 <body>
 
   <div class="backdrop"></div>
-  <h1 class="headline">Happy birthday <span>Molly</span>!</h1>
-  <p class="message">AT LEAST all these people love you 😜</p>
+  <div class="message">
+    <h1 class="headline">Happy birthday <span>Molly</span>!</h1>
+    <p class="body">AT LEAST all these people love you 😜</p>
+  </div>
 <div class="grid">
     <div class="grid-item"><img src="./images/1_H.jpg"/></div>
     <div class="grid-item"><img src="./images/2_A.jpg"/></div>
