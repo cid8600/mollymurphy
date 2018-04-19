@@ -65,7 +65,9 @@
     }
 
     .grid-item {
+      box-sizing: border-box;
       position: relative;
+      border: 1px solid #fff;
       width: 200px;
       height: 300px;
       overflow: hidden;
@@ -115,6 +117,15 @@
     }
     .grid-item--desktop {
       display: block;
+    }
+    /* highlight drag & drop */
+
+    /* Draggabilly adds is-dragging */
+    .grid-item.is-dragging,
+    /* Packery adds class while transitioning to drop position */
+    .grid-item.is-positioning-post-drag {
+      border: 1px solid #EA0;
+      z-index: 2; /* keep dragged item on top */
     }
     
     @media only screen and (max-width: 768px) {
@@ -194,6 +205,8 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/packery/2.1.1/packery.pkgd.min.js"
   crossorigin="anonymous"></script>
   <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script src="https://unpkg.com/draggabilly@2/dist/draggabilly.pkgd.min.js"></script>
+  
   <script>
     $(function() {
       
@@ -204,6 +217,15 @@
         columnWidth: 200,
         stagger: 30,
       });
+      
+      // make all grid-items draggable
+      $grid.find('.grid-item').each( function( i, gridItem ) {
+        var draggie = new Draggabilly( gridItem );
+        // bind drag events to Packery
+        $grid.packery( 'bindDraggabillyEvents', draggie );
+      });
+   
+      
       $grid.imagesLoaded().progress( function() {
         $grid.packery();
       });
