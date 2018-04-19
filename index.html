@@ -175,14 +175,17 @@
   <script>
     $(function() {
       
-      $('.grid').packery({
+      var $grid = $('.grid').packery({
         itemSelector: '.grid-item',
         gutter: 10,
         rowHeight: 300,
         columnWidth: 200,
         stagger: 30,
       });
-      
+      // layout Packery after each image loads
+$grid.imagesLoaded().progress( function() {
+  $grid.packery();
+});
     });
   </script>
 </body>
