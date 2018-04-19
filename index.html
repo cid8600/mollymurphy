@@ -50,7 +50,7 @@
       display: flex;
       padding: 32px;
       width: 100%;
-      max-width: 1040px;
+      max-width: 1200px;
       margin: 0 auto 30px auto;
     }
     .message__solve {
@@ -74,9 +74,9 @@
       height: 1230px;
       margin: 0 auto;
       display: block;
-      max-width: 1092px;
+      max-width: 1200px;
       width: 100%;
-      padding: 24px;
+      padding: 24px 0;
       box-sizing: border-box;
     }
     .grid-solved {
@@ -107,12 +107,12 @@
       left: 50%;
       transform: translate(-50%,-50%);
       width: 100%;
-      height: auto;
+      height: 100%;
       transition: all .2s ease;
     }
 
     .grid-item--width2 { 
-      height: 610px;
+      height: 642px;
       width: 410px; 
     }
     
@@ -144,22 +144,28 @@
     }
     
     @media only screen and (max-width: 768px) {
-      .grid-item {
+      .grid,
+      .grid-solved {
+        margin: 0 auto;
         width: calc(100% - 48px);
-        height: auto;
+      }
+      .grid-item {
+        width: 75px;
+        height: 112px;
       }
       .grid-item img {
         position: relative;
-        min-width: 200px;
+        max-width: 75px;
         height: auto;
         top: 0;
         left: 0;
         transform: none;
+        width: 100%;
       }
       
       .grid-item--width2 { 
-        width: calc(100% - 48px);
-        height: auto; 
+        width: 150px;
+        height: 225px;
       }
       .grid-item--mobile {
         display: block;
@@ -250,14 +256,23 @@
   
   <script>
     $(function() {
-      
-      var $grid = $('.grid').packery({
+      var desktopOptions = {
         itemSelector: '.grid-item',
         gutter: 10,
         rowHeight: 300,
         columnWidth: 200,
         stagger: 30,
-      });
+      };
+
+      var mobileOptions = {
+        itemSelector: '.grid-item',
+        gutter: 2,
+        rowHeight: 112,
+        columnWidth: 75,
+        stagger: 30,
+      };
+
+      var $grid = $('.grid').packery(mobileOptions);
       
       // make all grid-items draggable
       $grid.find('.grid-item').each( function( i, gridItem ) {
@@ -276,13 +291,7 @@
         $grid.packery('layout');
       });
 
-      var $gridSolved = $('.grid-solved').packery({
-        itemSelector: '.grid-item',
-        gutter: 10,
-        rowHeight: 300,
-        columnWidth: 200,
-        stagger: 30,
-      });
+      var $gridSolved = $('.grid-solved').packery(mobileOptions);
       
       // make all grid-items draggable
       $gridSolved.find('.grid-item').each( function( i, gridItem ) {
@@ -298,7 +307,7 @@
      
       $gridSolved.on( 'dblclick', '.grid-item', function( event ) {
         $(  event.currentTarget  ).toggleClass('grid-item--width2');
-        $grid.packery('layout');
+        $gridSolved.grid.packery('layout');
       });
       
       $('body').on( 'click', '.message__solve', function( event ) {
