@@ -187,8 +187,8 @@
     <div class="message__content">
       <h1 class="headline">Can you solve the puzzle?</h1>
       <p class="body">Drag, drop and double click your friends to decipher the message. <br/><br/>💖CiD 💖</p>
+      <button class="message__solve">Cheat / Solve</button>
     </div>
-    <button class="message__solve">Solve</button>
   </div>
 <div class="grid">
     <div class="grid-item"><img height="300" width="200" src="./images/20_Y.jpg"/></div>
@@ -302,10 +302,10 @@
         $('.grid-solved').toggle();
         $grid.packery('layout');
         $gridSolved.packery('layout');
-        if ($(  event.currentTarget  ).text() === 'Solve') {
+        if ($(  event.currentTarget  ).text() === 'Cheat / Solve') {
           $(  event.currentTarget  ).text('Unsolve')
         } else {
-          $(  event.currentTarget  ).text('Solve')
+          $(  event.currentTarget  ).text('Cheat / Solve')
         }
       });
 
