@@ -53,8 +53,8 @@
       margin: 0 auto 30px auto;
     }
     
-    .grid {
-      clear: both;
+    .grid,
+    .grid-solved{
       position: relative;
       height: 1230px;
       margin: 0 auto;
@@ -170,10 +170,9 @@
       <h1 class="headline">Can you solve the puzzle?</h1>
       <p class="body">Drag, drop and double click your friends to decipher the message. <br/>💖CiD 💖</p>
     </div>
-
+    <button class="message__solve">Solve</button>
   </div>
 <div class="grid">
-    
     <div class="grid-item"><img height="300" width="200" src="./images/20_Y.jpg"/></div>
     <div class="grid-item"><img height="300" width="200" src="./images/2_A.jpg"/></div>
     <div class="grid-item"><img height="300" width="200" src="./images/19_L.jpg"/></div>
@@ -195,7 +194,28 @@
     <div class="grid-item"><img height="300" width="200" src="./images/18_L.jpg"/></div>
     <div class="grid-item"><img height="300" width="200" src="./images/1_H.jpg"/></div>
 </div>
-
+<div class="grid-solved">
+      <div class="grid-item"><img height="300" width="200" src="./images/1_H.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/2_A.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/3_P.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/4_P.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/5_Y.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/6_.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/7_B.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/8_I.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/9_R.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/10_T.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/11_H.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/12_D.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/13_A.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/14_Y.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/15_.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/16_M.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/17_O.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/18_L.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/19_L.jpg"/></div>
+      <div class="grid-item"><img height="300" width="200" src="./images/20_Y.jpg"/></div>
+</div>
   <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -228,13 +248,42 @@
       $grid.imagesLoaded().progress( function() {
         $grid.packery();
       });
-      
-      
+     
       $grid.on( 'dblclick', '.grid-item', function( event ) {
         $(  event.currentTarget  ).toggleClass('grid-item--width2');
         $grid.packery('layout');
       });
+
+      var $gridSolved = $('.grid-solved').packery({
+        itemSelector: '.grid-item',
+        gutter: 10,
+        rowHeight: 300,
+        columnWidth: 200,
+        stagger: 30,
+      });
       
+      // make all grid-items draggable
+      $gridSolved.find('.grid-item').each( function( i, gridItem ) {
+        var draggie = new Draggabilly( gridItem );
+        // bind drag events to Packery
+        $gridSolved.packery( 'bindDraggabillyEvents', draggie );
+      });
+   
+      
+      $gridSolved.imagesLoaded().progress( function() {
+        $gridSolved.packery();
+      });
+     
+      $gridSolved.on( 'dblclick', '.grid-item', function( event ) {
+        $(  event.currentTarget  ).toggleClass('grid-item--width2');
+        $grid.packery('layout');
+      });
+      
+      $('body').on( 'click', '.message__solve', function( event ) {
+        $('.grid').toggle();
+        $('.grid-solved').toggle();
+      });
+
     });
   </script>
 </body>
