@@ -56,6 +56,12 @@
       background: url('./images/grass.jpg') no-repeat top center;
       background-size: cover;
     }
+      .grid-item--mobile {
+        display: none;
+      }
+      .grid-item--desktop {
+        display: block;
+      }
     
     @media only screen and (max-width: 768px) {
       .grid-item {
@@ -65,6 +71,12 @@
       .grid-item--width2 { 
         width: calc(100% - 48px);
         height: auto; 
+      }
+      .grid-item--mobile {
+        display: block;
+      }
+      .grid-item--desktop {
+        display: none;
       }
     }
   </style>
@@ -85,9 +97,10 @@
     <div class="grid-item"><img src="./images/10_T.jpg"/></div>
     <div class="grid-item"><img src="./images/11_H.jpg"/></div>
     <div class="grid-item"><img src="./images/12_D.jpg"/></div>
+    <div class="grid-item grid-item--width2 grid-item--desktop"><img src="./images/15_.jpg"/></div>
     <div class="grid-item"><img src="./images/13_A.jpg"/></div>
     <div class="grid-item"><img src="./images/14_Y.jpg"/></div>
-    <div class="grid-item grid-item--width2"><img src="./images/15_.jpg"/></div>
+      <div class="grid-item grid-item--width2 grid-item--mobile"><img src="./images/15_.jpg"/></div>
     <div class="grid-item"><img src="./images/16_M.jpg"/></div>
     <div class="grid-item"><img src="./images/17_O.jpg"/></div>
     <div class="grid-item"><img src="./images/18_L.jpg"/></div>
