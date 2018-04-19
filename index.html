@@ -302,6 +302,11 @@
         $('.grid-solved').toggle();
         $grid.packery('layout');
         $gridSolved.packery('layout');
+        if ($(  event.currentTarget  ).text() === 'Solve') {
+          $(  event.currentTarget  ).text('Unsolve')
+        } else {
+          $(  event.currentTarget  ).text('Solve')
+        }
       });
 
     });
